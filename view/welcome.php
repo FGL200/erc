@@ -16,10 +16,13 @@
     <header style="text-align: center; color: white; background-color: #E74C3C;">
         <h1>ERC</h1>
     </header>
-    <div style="align-self: center; flex-grow: 1; display: flex; align-items: center;">
+    <div style="align-self: center; flex-grow: 1; display: flex; flex-direction: column; justify-content: center; align-items: center;">
         <h2>
             This is the welcome page!
         </h2> 
+        <a href="<?=base_url('about')?>">
+            About
+        </a>
     </div>
 </body>
 </html>

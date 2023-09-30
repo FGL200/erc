@@ -1,22 +1,7 @@
 <?php
 
-// DO NOT MAKE CHANGES IN THIS FILE
-
-require_once "main.php";
-require_once "config.php";
-require_once "database.php";
-
-if (!isset($config)) ERC_Error("Config is not defined.");
-if (!isset($database)) ERC_Error("Database is not defined");
-
 if ($database['port'] === '') unset($database['port']);
 if ($database['socket'] === '') unset($database['socket']);
-
-define("ERC_CONFIG", $config);
-define("ERC_DB", $database);
-
-unset($config);
-unset($database);
 
 class ERC_Database
 {
@@ -80,37 +65,4 @@ class ERC_Database
         }
         return $ret;
     }
-}
-
-/**
- * GET THE BASE USRL OF THE PROJECT.
- * To change properties, look for config/config.php
- * @param String $url url of the next page
- */
-function base_url(String $url = ''): string
-{
-    if (ERC_CONFIG['base_url'][strlen(ERC_CONFIG['base_url']) - 1] !== '/')  $url = "/" . $url;
-    return isset(ERC_CONFIG['base_url']) ? ERC_CONFIG['base_url'] . "$url" : '';
-}
-
-/**
- * GET THE DEFAULT STARTING PAGE OF THE PROJECT.
- * To change properties, look for config/config.php
- */
-function start_page(): string
-{
-    return isset(ERC_CONFIG['start_page']) ? ERC_CONFIG['start_page'] : '';
-}
-
-/**
- * USE ONLY ON CONTROLLER.
- * Prepare the view page located on view folder
- * @param String $view the view to load located on view folder
- * @param array $var variables passed in view
- */
-function load_view(String $view, $var = []): void
-{
-    extract($var);
-    unset($var);
-    include_once "../view/" . $view . ".php";
 }

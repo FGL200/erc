@@ -1,5 +1,4 @@
 <?php 
-require_once "../config/connector.php";
 
 $data['title'] = "HELLO";
 

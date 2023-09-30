@@ -1,6 +1,6 @@
 <?php
-require_once "config/connector.php";
+require_once "system/connector.php";
 
-header("location: ".base_url()."controller/".start_page().".php");
+ERC_controller(start_page());
 
 ?>
